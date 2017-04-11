@@ -1,0 +1,10 @@
+ember-cli-dotenv provides access to `process.env.ENVIRONMENTAL_VARIABLE`s
+
+Within Ember, you can do
+
+```javascript
+import ENV from 'my-app/config/environment';
+
+// do something with ENV.EmberENV.ENVIRONMENTAL_VARIABLE
+
+```
