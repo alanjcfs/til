@@ -1,0 +1,6 @@
+defaults: &DEFAULTS
+  common_key: "master"
+list:
+  - name: "First"
+  - parameters:
+    <<: *DEFAULTS
