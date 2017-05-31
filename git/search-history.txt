@@ -1,0 +1,7 @@
+# Search git history for text containing "password"
+
+git log -Spassword
+
+# Search and show changes
+
+git log -Spassword --patch
