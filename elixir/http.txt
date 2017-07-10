@@ -1,0 +1,14 @@
+httpotion
+=========
+
+    # GET feeds.kottke.org/json
+    response = HTTPotion.get "feeds.kottke.org/json"
+
+    HTTPotion.Response.success?(response)
+
+    # Body will contain text
+    text = response.body
+
+    { :ok, json } = Poison.decode(text)
+
+    json["version"]
