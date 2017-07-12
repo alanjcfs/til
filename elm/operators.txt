@@ -1,0 +1,32 @@
+List of operators
+
+Elm Core version 2.1.0: http://package.elm-lang.org/packages/elm-lang/core/2.1.0/Basics
+
+# |> and <| Pipe operators
+
+is an alias for function application
+
+	viewNames1 names =
+		String.join ", " (List.sort names)
+
+	viewNames2 names =
+		names
+			|> List.sort
+			|> String.join ", "
+
+# => Operator
+
+is an alternative to parenthesis and comma
+
+	updatePage1 : Page -> Model -> ( Model, Cmd Msg )
+	updatePage1 page model =
+		( { model | state = page }, Cmd.none )
+	
+	updatePage2 : Page -> Model -> ( Model, Cmd Msg )
+	updatePage2 page model =
+		{ model | state = page } => Cmd.none
+
+# >> << Operators
+
+	(>>) : (a -> b) -> (b -> c) > a -> c
+	(<<) : (b -> c) -> (a -> b) -> a -> c

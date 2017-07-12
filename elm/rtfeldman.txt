@@ -1,0 +1,8 @@
+@rtfeldman defined a new operator for his Elm SPA Example
+
+	(=>) : a -> b -> (a, b)
+	(=>) =
+		(,)
+
+Makes `{ model | foo = bar } => Cmd.none` equivalent to
+`( { model | foo = bar }, Cmd.none )`
