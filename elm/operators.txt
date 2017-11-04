@@ -21,7 +21,7 @@ is an alternative to parenthesis and comma
 	updatePage1 : Page -> Model -> ( Model, Cmd Msg )
 	updatePage1 page model =
 		( { model | state = page }, Cmd.none )
-	
+
 	updatePage2 : Page -> Model -> ( Model, Cmd Msg )
 	updatePage2 page model =
 		{ model | state = page } => Cmd.none
