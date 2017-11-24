@@ -1,0 +1,88 @@
+Lexical Analysis and Parsing
+============================
+
+Lexical analysis is the tokenization of a text file into recognizable tokens. It
+does so by going through each character one at a time, discarding newline and
+space (because they are usually irrelevant to the language). In Python, however,
+newlines and spaces are significant and cannot be discarded.
+
+It analyzes text by determining for example:
+
+1. If it begins with "o", then you would check for whether the next character is
+   "r", and after that, a space. This would mean you have an "or" lexeme.
+1. If it begins with "/", then you would check the next character for "/" to
+   determine whether it is a comment character and discard until you reach the
+   newline.
+1. If "/*" is encountered you would scan and look for the sequence of */ to
+   determine the ending of the comment block.
+
+I think I might need to rewrite the lexer because I am not really scanning, I am
+consuming the token, and that's making for very complex code. What I really
+should do is change it to using a count, so the scanner can then use indexing to
+slice all the characters in between.
+
+The slice can then be processed, generating a lexeme, which will contain the
+string, and the literal, which will contain the value.
+
+The lexeme contains the actual string, while the literal is the value. In Java,
+such a value can have any value and is assigned the type of "Object", but in
+Rust, I am able to constrain the value using Enum. I am not sure if there is
+such a thing called Object. There is such a thing called Generic. But I think
+I would much rather use Enum to constrain the values.
+
+In a programming language, you would come across a lexeme of numbers and then
+attempt to parse this number into the Object literal. In Rust, this is best done
+using the Enum.
+
+There may be only nine types of values in all: Date, Star, Bang, Description,
+AccountName, CommoditySymbol, Minus, Number, and Indentation.
+
+The lexical analysis is also the best stage for actually doing the conversion,
+so you have "Date" that is actually parsed successfully and is ready for use in
+the next stage. In contrast, trying to delay processing the date means we would
+need to do this at the Parsing stage or later, which is not necessarily the best
+place for it. And we want to know at the lexical analysis level whether the
+lexeme is valid.
+
+We want to move through and count the number of dashes (for date)? Would this be
+a wise thing to do?
+
+
+Overall understanding lexical analysis:
+
+* Encounter * or !, see if space afterwards, add as Status. Only applies after
+  date.
+
+I feel like in analysis of a transaction, it cannot be free of the context.
+There's a certain set of expectations that a transaction form is supposed to
+have.
+
+I am dumb.
+
+
+Parsing is the act of determining whether the sequence of tokens fit the correct
+grammar. So we have recursive descent parsing as a popular option.
+
+For example:
+
+* Date must be followed by a Status or a Description.
+* Status must be followed by Description.
+* Description must be followed by indentation.
+* Indentation must be followed by AccountName.
+* AccountName must be followed by Indentation.
+* Indentation after AccountName can be followed by a Number, a CommoditySymbol or
+  a Minus.
+* A Minus must be followed by a CommoditySymbol or Number.
+* A Number can be followed by a CommoditySymbol or vice versa, but must not have
+  more.
+
+
+* Date -> (Status | Description) ;
+* Status -> Description ;
+* Description -> Indentation ;
+* Indentation -> AccountName ;
+* AccountName -> Indentation -> Currency ;
+* Currency -> "-" Currency | CommoditySymbol Currency | Currency CommoditySymbol
+  | number ;
+
+Is this really an expression grammar? I do not know.
