@@ -1,0 +1,18 @@
+Staying Productive as a Solo Founder
+------------------------------------
+
+https://zachholman.com/posts/staying-productive-solo-founder
+
+Iceberg Theory: https://en.wikipedia.org/wiki/Iceberg_Theory
+
+Theory of Omission regarding the narrative of a story. Omitting something
+important can make people "feel" more or glean more meaning from a story than
+omitting because you don't know.
+
+Zeigarnik Effect: https://en.wikipedia.org/wiki/Zeigarnik_effect
+
+Leaving things uncompleted or interrupted allow people to remember them more
+(apparently). For example, waiters had better recollections of unpaid orders,
+but once paid, they don't remember them anymore. This could apply to programming
+if you leave a task unfinished, so that the next day, you will be able to return
+to it when possible.
