@@ -1,0 +1,34 @@
+= Powershell
+
+== Vim
+
+To enable Vim in Powershell
+
+Following: http://www.expatpaul.eu/2014/04/vim-in-powershell/ (Accessed on:
+2018-01-03)
+
+Set ExecutionPolicy to RemoteSigned if Restricted
+
+ Get-ExecutionPolicy # Restricted, AllSigned, Unrestricted, and RemoteSigned
+
+ Set-ExecutionPolicy RemoteSigned # If Restricted
+
+Add a file if not exist (add -force if desired):
+
+ new-item -path $profile -itemtype file
+
+Modify file with Notepad:
+
+ notepad $profile
+
+Add the following code:
+
+....
+set-alias vim "C:\Program Files (x86)\vim\vim80\vim.exe"
+set-alias gvim "C:\Program Files (x86)\vim\vim80\gvim.exe"
+
+Function Edit-Profile
+{
+	vim $profile
+}
+....

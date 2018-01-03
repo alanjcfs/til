@@ -1,0 +1,15 @@
+= FZF
+
+== Windows
+
+Download fzf.exe from junegunn/fzf releases and put in
+`$HOME/.vim/plugged/fzf/bin` directory if running the install script doesn't
+succeed.
+
+== To use in Vim
+
+Remove CtrlP and put in `nnoremap <C-P> :FZF<cr>` to remap Ctrl-P to run FZF.
+
+== To use in Powershell
+
+Use set-alias for profile. Refer to `sh/powershell.txt`
