@@ -1,0 +1,12 @@
+Introduction to Parser Combinators by James Coglan
+
+https://blog.jcoglan.com/2017/07/06/introduction-to-parser-combinators/
+
+It was difficult to go through the whole blog post and try to port if over to
+Rust and there were some inconsistencies in his writing that with the help of an
+editor would have been fixed.
+
+One example most recently encountered was him refering the "root" without
+explaining where the root came from. It would turn out that in the next blog
+post, he would have in the Addition class defined `root` as being an alias of
+`expression`.
