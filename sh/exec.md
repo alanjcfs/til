@@ -1,0 +1,5 @@
+Use
+
+```
+exec $SHELL
+```
